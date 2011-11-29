@@ -1,0 +1,2213 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* Reset.less
+ * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
+ * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dd,
+dl,
+dt,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend,
+button,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 100%;
+  line-height: 1;
+  font-family: inherit;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+ol, ul {
+  list-style: none;
+}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+html {
+  overflow-y: scroll;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:hover, a:active {
+  outline: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Remove Android and iOS tap highlight color to prevent entire container being highlighted
+ *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 4. Prevent iOS text size adjust on device orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+/* 
+ * These selection declarations have to be separate
+ * No text-shadow: twitter.com/miketaylr/status/12228805301
+ * Also: hot pink!
+ */
+
+::-moz-selection { background: #6aa867; color: #fff; text-shadow: none; }
+::selection { background: #6aa867; color: #fff; text-shadow: none; }
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+@link:#3c6ac7;
+a { color:@link ; text-decoration:none; }
+a:focus { outline: thin dotted; }
+
+/* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: 0; }
+
+p a:hover{
+ color:lighten(@link,5%);
+ border-bottom:1px dotted;
+}
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+p {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  margin-bottom: 9px;
+}
+p small {
+  font-size: 11px;
+  color: #bfbfbf;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .Helv();
+  font-weight: bold;
+  color: #404040;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  color: #bfbfbf;
+}
+h1 {
+  margin-bottom: 0.7em;
+  font-size: 1.8em;
+  line-height: 1.457em;
+}
+
+h1.page-title{
+ color:@title-color;
+ margin:1.4em 0;
+}
+
+h1 small {
+  font-size: 18px;
+}
+h2 {
+  font-size: 1.35em;
+  line-height: 1.5em;
+  margin:0.75em 0;
+}
+.intro-section h2{
+ font-size:1.1em;
+}
+h2 small {
+  font-size: 14px;
+}
+h3,
+h4,
+h5,
+h6 {
+  line-height: 36px;
+}
+h3 {
+  font-size: 1.2em;
+  line-height:1.5em;
+  margin:0.75em 0;
+}
+
+h3 a {
+ font-weight:bold;
+ text-decoration:none;
+}
+
+h3 a:hover{
+ border-bottom:1px dotted;
+}
+
+h3 small {
+  font-size: 14px;
+}
+h4 {
+  font-size: 16px;
+}
+h4 small {
+  font-size: 12px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 13px;
+  color: #bfbfbf;
+  text-transform: uppercase;
+}
+ul, ol {
+  margin: 0 0 18px 25px;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+ul {
+  list-style: disc;
+}
+ol {
+  list-style: decimal;
+}
+li {
+  line-height: 18px;
+}
+ul.unstyled {
+  list-style: none;
+  margin-left: 0;
+}
+dl {
+  margin-bottom: 18px;
+}
+dl dt, dl dd {
+  line-height: 18px;
+}
+dl dt {
+  font-weight: bold;
+}
+dl dd {
+  margin-left: 9px;
+}
+hr {
+  margin: 20px 0 19px;
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+strong {
+  font-style: inherit;
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.muted {
+  color: #bfbfbf;
+}
+blockquote {
+  margin-bottom: 18px;
+  border-left: 5px solid #eee;
+  padding-left: 15px;
+}
+blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+}
+blockquote small {
+  display: block;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: #bfbfbf;
+}
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+address {
+  display: block;
+  line-height: 18px;
+  margin-bottom: 18px;
+}
+code, pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+  font-size: 12px;
+  .border-radius;
+}
+code {
+  background-color: #fee9cc;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+}
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  .border-radius;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+img,
+    object {
+         max-width: 100%;
+}
+
+
+/* Forms
+ * Base styles for various input types, form layouts, and states
+ * ------------------------------------------------------------- */
+form {
+  margin-bottom: 18px;
+}
+fieldset {
+  margin-bottom: 18px;
+  padding-top: 18px;
+}
+fieldset legend {
+  display: block;
+  padding-left: 150px;
+  font-size: 19.5px;
+  line-height: 1;
+  color: #404040;
+  *padding: 0 0 5px 145px;
+  /* IE6-7 */
+
+  *line-height: 1.5;
+  /* IE6-7 */
+
+}
+form .clearfix {
+  margin-bottom: 18px;
+  zoom: 1;
+}
+form .clearfix:before, form .clearfix:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+form .clearfix:after {
+  clear: both;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+}
+label {
+  padding-top: 6px;
+  font-size: 13px;
+  line-height: 18px;
+  float: left;
+  width: 130px;
+  text-align: right;
+  color: #404040;
+}
+form .input {
+  margin-left: 150px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+input,
+textarea,
+select,
+.uneditable-input {
+  display: inline-block;
+  width: 210px;
+  height: 18px;
+  padding: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select {
+  padding: initial;
+}
+input[type=checkbox], input[type=radio] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 3px 0;
+  *margin-top: 0;
+  /* IE6-7 */
+
+  line-height: normal;
+  border: none;
+}
+input[type=file] {
+  background-color: #ffffff;
+  padding: initial;
+  border: initial;
+  line-height: initial;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input[type=button], input[type=reset], input[type=submit] {
+  width: auto;
+  height: auto;
+}
+select, input[type=file] {
+  height: 27px;
+  *height: auto;
+  line-height: 27px;
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+}
+select[multiple] {
+  height: inherit;
+  background-color: #ffffff;
+}
+textarea {
+  height: auto;
+}
+.uneditable-input {
+  background-color: #ffffff;
+  display: block;
+  border-color: #eee;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
+  cursor: not-allowed;
+}
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+input, textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input:focus, textarea:focus {
+  outline: 0;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+input[type=file]:focus, input[type=checkbox]:focus, select:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: 1px dotted #666;
+}
+
+/* =============================================================================
+* BUTTONS *
+==============================================================================*/
+.btn {
+ font-family:Arial,serif;
+  cursor: pointer;
+  display: inline-block;
+  .gradient-btn();
+  padding: 5px 12px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  color: #333;
+  font-size: 13px;
+  line-height: normal;
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  text-transform:uppercase;
+  text-decoration:none;
+  font-weight:bold;
+  .border-radius(4px);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 2px rgba(0, 0, 0, 0.05);
+  .transition();
+
+}
+.btn:hover {
+  background-position: 0 -15px;
+  color: #333;
+  text-decoration: none;
+}
+.btn:focus {
+  outline: 1px dotted #666;
+}
+.btn.primary {
+  color: #ffffff;
+  .gradient-btn-primary();
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn.primary.primary-b {
+ .gradient-btn-primary-b();
+}
+.btn.active, .btn:active {
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  position:relative;
+  top:1px;
+}
+.btn:focus {
+ outline:none;
+}
+.btn.disabled {
+  cursor: default;
+  background-image: none;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(enabled = false)";
+  filter: alpha(opacity=65);
+  -khtml-opacity: 0.65;
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(enabled = false)";
+  filter: alpha(opacity=65);
+  -khtml-opacity: 0.65;
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+:root .btn {
+  border-radius: 0 \0;
+}
+button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * Improve image quality when scaled in IE7
+ * code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+
+img { border: 0; -ms-interpolation-mode: bicubic; }
+
+/*
+ * Correct overflow displayed oddly in IE9 
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+
+figure { margin: 0; }
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* 
+ * 1. Correct color not inheriting in IE6/7/8/9 
+ * 2. Correct alignment displayed oddly in IE6/7 
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; }
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ * 2. Correct inner spacing displayed oddly in IE6/7
+ */
+
+button, input { line-height: normal; *overflow: visible; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+/*
+ * Consistent box sizing and appearance
+ */
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+
+/* 
+ * Remove inner padding and border in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ 
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* Remove default vertical scrollbar in IE6/7/8/9 */
+textarea { overflow: auto; vertical-align: top; }
+
+/* Colors for form validity */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* =============================================================================
+   Primary styles
+   Author: Ciprian Amaritei
+   ========================================================================== */
+
+
+/* Variables.less
+ * Variables to customize the look and feel of Bootstrap
+ * ----------------------------------------------------- */
+@desert:#F7F6EF;
+@orange:#d3715a;
+@title-color:#629928;
+@light-blue:#90c0dc;
+@light-green:#ebf4e1;
+@img-url:"../img";
+/* Mixins.less
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+.box-shadow(@x: 0, @y: 0, @blur:1px, @color:rgba(0,0,0,0.5) ){
+   box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+
+.border-radius (@radius: 3px){
+  -moz-border-radius:@radius;
+ -webkit-border-radius:@radius;
+ border-radius:radius;
+}
+
+.Lucida(){
+ font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+}
+.Helv(){
+ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+ 
+
+.gradient-stop(@start: #333, @stop: #222, @aux: #0e0e0e) {
+    background: @start;
+    background: -moz-linear-gradient(top,  @start 0%, @stop 46%, @aux 46%, @stop 81%, @start 99%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(46%,@stop), color-stop(46%,@aux), color-stop(81%,@stop), color-stop(99%,@start)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  @start 0%,@stop 46%,@aux 46%,@stop 81%,@start 99%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  @start 0%,@stop 46%,@aux 46%,@stop 81%,@start 99%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  @start 0%,@stop 46%,@aux 46%,@stop 81%,@start 99%); /* IE10+ */
+    background: linear-gradient(top,  @start 0%,@stop 46%,@aux 46%,@stop 81%,@start 99%); /* W3C */
+    filter: ~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@start', endColorstr='@stop',GradientType=0 )"; /* IE6-9 */
+}
+.gradient-btn(@start:#dedede, @stop:#f0f0f0, @end:#f0f0f0){
+ background-color: @start;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, @stop), to(@start));
+  background-image: -webkit-linear-gradient(@end, @stop 25%, @start);
+  background-image: -moz-linear-gradient(top, @end, @stop 25%, @start);
+  background-image: -ms-linear-gradient(@end, @stop 25%, @start);
+  background-image: -o-linear-gradient(@end, @stop 25%, @start);
+  background-image: linear-gradient(@end, @stop 25%, @start);
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@end', endColorstr='@start', GradientType=0)";
+}
+.gradient-btn-primary(@start:#4897ce, @stop:#48a9e2){
+   background-color: @start;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(@stop), to(@start));
+  background-image: -moz-linear-gradient(top, @stop, @start);
+  background-image: -ms-linear-gradient(top, @stop, @start);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @stop), color-stop(100%, @start));
+  background-image: -webkit-linear-gradient(top, @stop, @start);
+  background-image: -o-linear-gradient(top, @stop, @start);
+  background-image: linear-gradient(top, @stop, @start);
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@stop', endColorstr='@start', GradientType=0)";
+}
+
+.gradient-btn-primary-b(@start:#619945, @stop:#74b853){
+   background-color: @start;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(@stop), to(@start));
+  background-image: -moz-linear-gradient(top, @stop, @start);
+  background-image: -ms-linear-gradient(top, @stop, @start);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @stop), color-stop(100%, @start));
+  background-image: -webkit-linear-gradient(top, @stop, @start);
+  background-image: -o-linear-gradient(top, @stop, @start);
+  background-image: linear-gradient(top, @stop, @start);
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@stop', endColorstr='@start', GradientType=0)";
+}
+
+.transition(@duration:0.1s, @ease:linear) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -ms-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
+.rotation(@deg:5deg){
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+.translate(@x:0, @y:0) {
+  -moz-transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+/*
+ * Scaffolding
+ * Basic and global styles for generating a grid system, structural layout, and page templates
+ * ------------------------------------------------------------------------------------------- */
+
+body {
+   .Helv();
+}
+
+.wrapper{
+	margin:auto;
+	width:1075px;
+	position:relative;
+}
+
+#main{
+ height:490px;
+ min-height:490px;
+ height:auto !important;
+}
+#header-container{
+	background-color:#151515;
+	height:130px;
+	.Lucida();
+}
+
+#header-container {
+ background:url("@{img-url}/logo-shine.png") 20% bottom no-repeat #111;
+}
+
+#logo{
+ display:inline-block;
+ float:left;
+ margin-top:25px;
+}
+
+#social-section {
+ float:right;
+ margin-top:8px;
+}
+
+#social-section ul, #social-section ul li{
+ display:inline;
+}
+
+#social-section ul li{
+ float:left; 
+}
+
+#social-section a{
+ color:#888;
+ text-decoration:none;
+ font-size:0.9em;
+ opacity:0.8;
+ vertical-align:middle;
+}
+
+#social-section a:hover{
+ opacity:1;
+}
+
+.location a {
+ background:url("@{img-url}/heart-small.png") 88% center no-repeat transparent;
+  padding:0 2em 0 0.7em;
+}
+
+.location li:first-child a{
+ border-right:1px dotted #666;
+}
+
+#social-section ul{
+ display:inline-block;
+ margin:0;
+ padding:0;
+}
+
+.socialize a {
+ background-image:url("@{img-url}/social-icons.png");
+ display:inline-block;
+ margin-left:15px;
+}
+.socialize a.twitter-icon{
+ background-position:left top;
+ height:15px;
+ width:80px;
+}
+
+.socialize a.fb-icon{
+ background-position:left bottom;
+ height:14px;
+ width:65px;
+}
+
+/*
+ ** Total Donated widget
+*/
+
+.total-donated {
+ clear:right;
+ color:#666;
+ float:right;
+ margin-top:60px;
+}
+.donated-amount{
+ font-size:1.3em;
+ color:#b4b4b4;
+}
+
+.donated-amount span{
+ .gradient-stop(#333, #222, #0e0e0e);
+ width:24px;
+ height:24px;
+ display:inline-block;
+ margin:0 1px;
+ vertical-align:middle;
+ line-height:23px;
+ text-align:center;
+ .border-radius;
+ .box-shadow(1px,1px,0,rgba(0,0,0,1));
+ text-shadow:1px 1px 0 rgba(0,0,0,1);
+}
+
+.donated-amount .dollar{
+ background:none;
+ width:18px;
+  .box-shadow(0,0,0);
+}
+
+#nav-container{
+ background-color:#151515;
+ height:32px;
+ .Lucida();
+}
+
+#nav-container nav{
+ border-top:1px solid #2a2a2a;
+ clear:both;
+ text-align:center;
+ width:100%;
+ float:left;
+}
+
+#nav-container nav ul {
+ line-height:30px;
+}
+
+#nav-container nav ul li{
+	display:inline;
+	border-right:1px dotted #444;
+	padding:0.25em 3em;
+}
+
+#nav-container nav ul li:last-child{
+ border-right:none;
+}
+
+#nav-container nav a{
+	color:#d4d4d4;
+	text-decoration:none;
+	text-decoration:titlecase;
+	text-shadow:1px 1px 0 #000;
+	&:hover{
+	 color:#FFF;
+	}
+}
+#nav-container nav ul li.my-cause {
+ padding:0.25em 1.2em; 
+}
+
+#nav-container nav ul li.my-cause a {
+ background:url("@{img-url}/my-cause-btn-sprite.png") left bottom no-repeat transparent;
+ color:#FFF;
+ display:inline-block;
+ padding-bottom:11px;
+ padding-left:12px;
+ padding-top:7px;
+ width:100px;
+ text-shadow:1px 1px 0 rgba(0,0,0,0.3);
+ outline:none;
+}
+
+#nav-container nav ul li.my-cause a:hover {
+ background-position:right bottom;
+}
+
+#nav-container nav ul li.my-cause a:active {
+ background-position:left bottom;
+}
+
+#nav-container nav ul li.my-cause .my{
+ font-style:italic;
+ font-family:Georgia,serif;
+}
+
+.main-quote {
+ margin:4.5em auto; 
+}
+
+.page-quote blockquote{
+ position:relative;
+ padding-left:0;
+ border:none;
+ margin:0 auto;
+}
+
+.main-quote blockquote{
+ padding-left:0;
+ border:none;
+ width:81%;
+ margin:0 auto;
+ text-align:center;
+ position:relative;
+}
+
+.main-quote p.quote-content{
+ color:#555;
+ font-size:2.2em;
+ .Helv();
+ line-height:1.25;
+ text-indent:0.5em;
+}
+
+.page-quote p.quote-content{
+  color:#333;
+ font-size:1.1em;
+ .Helv();
+ line-height:1.25;
+ text-indent:2.2em;
+}
+
+.page-quote span.quote-author{
+ font-style:italic;
+ color:#888;
+}
+
+.main-quote p.quote-author{
+ color:#888;
+ text-align:right;
+ margin-right:1em;
+}
+
+.main-quote .bqstart {
+ color:#E5E3D8;
+ display:inline-block;
+ float:left;
+ font-family:Georgia,serif;
+ font-size:8em;
+ position:absolute;
+ left:0;
+ top:0;
+ z-index:-1;
+ text-align:left;
+ margin-top:-5px;
+}
+
+.page-quote .bqstart {
+ color:#E5E3D8;
+ display:inline-block;
+ float:left;
+ font-family:Georgia,serif;
+ font-size:5em;
+ position:absolute;
+ left:0;
+ top:0;
+ z-index:-1;
+ text-align:left;
+ margin-top:-10px;
+}
+
+@processBoxShadow:0px 10px 10px rgba(0,0,0,0.01) inset,0px -10px 10px rgba(0,0,0,0.01) inset;
+.process {
+ margin:18px auto 72px;
+ background-color:@desert;
+ background-image:url("../img/noise.png");
+ background-repeat:repeat;
+ height:240px;
+ -moz-box-shadow:@processBoxShadow;
+ -webkit-box-shadow:@processBoxShadow;
+ box-shadow:@processBoxShadow;
+}
+
+.process-steps ol{
+ list-style-type:none;
+ display:inline-block;
+ width:100%;
+ margin:0;
+ padding:0;
+}
+
+.process-steps ol > li{
+ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+ display:inline-block;
+ width:19.8%;
+ float:left;
+ height:240px;
+ border-right:1px dashed darken(@desert,20%);
+ position:relative;
+ border-left:1px dashed #fff;
+ -moz-transition:all 0.15s linear;
+ -webkit-transition: all 0.15s linear;
+ transition:all 0.15s linear;
+ &:hover{
+  background-color:darken(@desert,3%);
+  background-position:center 57%;
+ }
+}
+
+.process-steps ol > li:hover{
+  background-color:darken(@desert,3%);
+  background-position:center 57%;
+}
+
+.process-steps ol > li:first-child{
+ border-left:none;
+}
+
+.process-steps ol > li:last-child{
+ border-right:none;
+}
+
+.step-1{ background:url("@{img-url}/step-1-icon.png") center 60% no-repeat transparent; }
+.step-2{ background:url("@{img-url}/step-2-icon.png") center 60% no-repeat transparent; }
+.step-3{ background:url("@{img-url}/step-3-icon.png") center 60% no-repeat transparent; }
+.step-4{ background:url("@{img-url}/step-4-icon.png") center 60% no-repeat transparent; }
+.step-5{ background:url("@{img-url}/step-5-icon.png") center 60% no-repeat transparent; }
+
+.step-content {
+ padding:17px 2%;
+ text-align:center;
+ float:left;
+ width:97%;
+}
+
+.step-details{
+ display:none;
+ background:#151515;
+ color:#fff;
+ .border-radius(10px);
+ text-shadow:none;
+ padding:15px;
+ position:absolute;
+ left:90%;
+ top:75px;
+ text-align:left;
+ width:23em;
+ z-index:2;
+ opacity:0.9;
+ .box-shadow(1px,1px,2px,rgba(0,0,0,0.3));
+}
+.step-details p {
+ color:#DDD;
+}
+.step-details p.step-details-intro{
+ font-weight:bold;
+ color:#FFF;
+}
+.step-details p.step-details-intro.no-border-bottom {
+ border-bottom:none;
+ padding-bottom:0;
+}
+.step-details-flipped-horiz {
+ left:-320px;
+}
+
+step-details ul{
+ padding-left:20px;
+}
+
+.step-details li{
+ color:#DDD;
+ list-style-type:square;
+ line-height:1.7;
+}
+
+.step-3 .step-details p:last-child{
+ letter-spacing:0.05em;
+}
+
+.step-no{
+ background-color:darken(@desert,25%);
+ height:23px;
+ width:23px;
+ font-weight:bold;
+ font-size:1.15em;
+ text-shadow:1px 1px 0 rgba(0,0,0,0.1);
+ line-height:23px;
+ text-align:center;
+ vertical-align:middle;
+ color:#FFF;
+ display:inline-block;
+ margin-right:7px;
+ .border-radius(20px);
+ -moz-box-shadow:1px 1px 0px rgba(255,255,255,0.5), 1px 1px 6px rgba(0,0,0,0.08) inset;
+ -webkit-box-shadow:1px 1px 0px rgba(255,255,255,0.5), 1px 1px 6px rgba(0,0,0,0.08) inset;
+ box-shadow:1px 1px 0px rgba(255,255,255,0.5), 1px 1px 6px rgba(0,0,0,0.08) inset;
+}
+
+.step-title{
+ font-weight:bold;
+ color:darken(@desert,70%);
+ text-shadow:1px 1px 0 rgba(255,255,255,1);
+ vertical-align:middle;
+ cursor:default;
+}
+
+.call2action-container {
+ text-align:center;
+ position:relative;
+ widt:100%;
+ margin-top:10px;
+}
+
+@call2actionBtn-shadow:0 1px 0 darken(@orange,18%),0 2px 0 darken(@orange,18%), 0 2px 4px rgba(0,0,0,0.3);
+.call2action-container a{
+ display:inline-block;
+ color:#FFF;
+ font-size:1.7em;
+ font-weight:normal;
+ font-family:"Museo Sans",Helvetica,Arial,sans-serif;
+ text-decoration:none;
+ background:@orange;
+ padding:0.3em 0.6em;
+ outline:none;
+ text-shadow:1px 1px 0 rgba(0,0,0,0.1);
+ .border-radius;
+ -moz-transition: all 0.1s ease-in-out;
+ -webkit-transition: all 0.1s ease-in-out;
+ transition: all 0.1s ease-in-out;
+ -webkit-perspective: 1000;
+ -webkit-backface-visibility: hidden;
+ -webkit-box-shadow:@call2actionBtn-shadow;
+ -moz-box-shadow:@call2actionBtn-shadow;
+ box-shadow:@call2actionBtn-shadow;
+ 
+}
+
+.call2action-container a:hover{
+ background:darken(@orange,3.5%);
+ color:#FFF;
+ border:none;
+}
+
+.call2action-container a:active{
+ -webkit-backface-visibility:hidden;
+ -moz-transform:translate(0, 2px);
+ -webkit-transform:translate(0, 2px);
+ transform:translate(0, 2px);
+ .box-shadow(1px,1px,0,darken(@orange,18%));
+
+}
+
+.shortcut-to-sections{
+ .Lucida();
+ h1{
+  .Lucida();
+ }
+}
+
+ul.go-to-sections{
+ list-style:none;
+ padding:0;
+ margin:5em 0;
+}
+
+ul.go-to-sections li{
+ background:none 40px center no-repeat transparent;
+ border-top:1px dashed darken(@desert,20%); 
+ height:165px;
+ position:relative;
+ 
+}
+
+ul.go-to-sections li:last-child{
+ border-bottom:1px dashed darken(@desert,20%); 
+}
+
+ul.go-to-sections a {
+ background-position:40px center;
+ background-repeat:no-repeat;
+ background-color:transparent;
+ text-decoration:none;
+ color:#333;
+ height:165px;
+ line-height:165px;
+ display:block;
+ width:80%;
+ position:absolute;
+ font-size:1.4em;
+ padding-left:20%;
+}
+
+ul.go-to-sections li.go-to-donate a{ background-image:url("../img/donate-pictogram.png");}
+ul.go-to-sections li.go-to-sell a{ background-image:url("../img/sell-pictogram.png"); }
+ul.go-to-sections li.go-to-buy a{ background-image:url("../img/buy-pictogram.png"); }
+
+ul.go-to-sections li a:hover{
+ background-color:lighten(@desert,3.3%);
+ 
+}
+
+ul.go-to-sections li:hover{
+ //background:url("../img/go-to-section-arrow.png") 90% center no-repeat transparent;
+}
+
+.description-text-large {
+ font-size:1.25em;
+ line-height:1.5;
+ color:#444;
+}
+
+#footer-container {
+ .Lucida();
+ background:#151515;
+ height:75px;
+ color:#999;
+ padding:20px 0 10px;
+ font-size:0.9em;
+ text-align:center;
+ display:inline-block;
+ width:100%;
+ margin-top:36px;
+}
+
+#footer-container p{
+ margin-top:5px;
+ display:inline-block;
+}
+
+#footer-container a{
+ text-decoration:underline;
+ color:#a6a6a6;
+ &:hover{
+  text-decoration:none;
+  color:#ddd;
+  border:none;
+ }
+}
+
+#footer-container nav.footer-nav ul li{
+ display:inline;
+ a{
+  text-decoration:none;
+  display:inline-block;
+  padding:0 0.6em;
+  border-right:1px dotted #666;
+ }
+}
+
+#footer-container nav.footer-nav ul li:last-child a{
+ border-right:none;
+}
+
+.footer-logo {
+ opacity:0.9;
+ display:inline-block;
+ position:absolute;
+ left:13%;
+ &:hover{
+  opacity:1;
+ }
+}
+/*==============================================================================
+ * STORE page
+ */
+.intro-section {
+ .Helv();
+ border-top:1px solid lighten(@light-blue,20%);
+ border-bottom:1px solid lighten(@light-blue,20%);
+ padding:17px 0;
+}
+
+.percent50{
+ display:inline-block;
+ text-indent:-99999px;
+ background-image:url("@{img-url}/50p.png");
+ background-repeat:no-repeat;
+ background-position:center;
+ width:61px;
+ height:61px;
+}
+
+.promo-tagline {
+ color:darken(@light-blue,27%);
+ font-size:1.2em;
+}
+
+.products {
+ margin:36px 0 90px 0;
+}
+
+.c-product{
+ display:inline-block;
+ width:45%;
+ float:left;
+}
+
+.c-product h2{
+ margin-bottom:5px;
+
+}
+
+.product-view {
+ text-align:center;
+ position:relative;
+}
+.product-view .btn {
+ float:right;
+ clear:left;
+ margin-right:125px;
+ display:inline;
+}
+a.product-link {
+ background:#FFF;
+ display:inline-block;
+ margin-bottom:18px;
+ float:left;
+  border:3px solid #fff;
+ .box-shadow(1px, 1px, 2px, rgba(0,0,0,0.3));
+ position:relative;
+ z-index:1;
+ &:hover{
+  .box-shadow(1px, 1px, 3px, rgba(0,0,0,0.4));
+ }
+}
+
+a.product-link img {
+ vertical-align:middle;
+}
+
+span.price-tag{
+ background:url("@{img-url}/price-tag.png") left top no-repeat transparent;
+ display:inline-block;
+ color:darken(@desert,68%);
+ text-shadow:0 0 1px rgba(255,255,255,0.9);
+ font-family:Helvetica,Arial,sans-serif;
+ height:55px;
+ width:122px;
+ position:absolute;
+ left:356px;
+ top:25px;
+ text-align:right;
+ .transition();
+ z-index:0;
+  -webkit-perspective: 1000;
+ -webkit-backface-visibility: hidden;
+}
+
+span.price-tag:hover{
+ .translate(2px,0);
+}
+
+span.price-tag sup{
+ font-style:italic;
+ font-weight:bold;
+ font-size:1.2em;
+}
+
+.price{
+ font-size:2.1em;
+ font-weight:bold;
+ font-style:italic;
+ display:inline-block;
+ margin:5px 15px 0 0;
+}
+
+/*== Pure gift section ==*/
+.pure-gift{
+ background:url("@{img-url}/pure-gift-stripe.png") left top repeat @desert;
+ height:408px;
+ margin-bottom:-36px;
+ text-align:center;
+}
+
+.ribbon-gift {
+ text-align:center;
+ background:url("@{img-url}/pure-gift-ribbon.png") center top no-repeat transparent;
+ height:56px;
+ position:relative;
+ top:-26px;
+ margin-bottom:0;
+}
+
+.ribbon-gift:hover{
+ opacity:1;
+}
+
+.pure-gift-title {
+ margin-top:-18px;
+ text-shadow:1px 1px 0 rgba(255,255,255,1);
+}
+
+.donate-btn{
+ position:relative;
+ top:-30px;
+}
+.donate-btn:active{
+ top:-29px;
+}
+
+/*==============================================================================
+ * DONATE page
+ */
+.progress-bar {
+ margin:36px 0; 
+}
+
+.progress-bar .track-list {
+ background:url("@{img-url}/progress-arrow.png") 10px 67px no-repeat;
+ list-style:none;
+ padding:0;
+ float:left;
+ width:100%;
+}
+
+.progress-bar .track-list.track-list-s{
+ background:url("@{img-url}/progress-arrow-s.png") 10px 67px no-repeat;
+}
+
+.progress-bar .track-list li{
+ display:inline;
+ width:28%;
+ float:left;
+ height:165px;
+ position:relative;
+}
+
+.progress-bar .track-list li.donate-step{
+ width:14%; 
+}
+
+.progress-no{
+ .Helv();
+ font-size:1.3em;
+ background-color:#666;
+ display:inline-block;
+ width:25px;
+ height:25px;
+ line-height:25px;
+ color:#FFF;
+ font-weight:bold;
+ border:4px solid #FFF;
+ margin-top:70px;
+ position:relative;
+ left:5px;
+ .box-shadow(-2px, 0, 2px, rgba(0,0,0,0.2));
+ vertical-align:middle;
+ text-shadow:1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.progress-bar .track-list li a.track-link{
+ position:absolute;
+ top:10px;
+ left:0;
+}
+
+.track-link{
+ .Helv();
+ .border-radius(4px);
+ display:inline-block;
+ padding:0.8em 0.6em;
+ line-height:1.3;
+ text-decoration:none;
+ text-shadow:1px 1px 0 #FFF;
+}
+
+.track-link-d{
+ background:lighten(@light-blue,22%);
+ color:darken(@light-blue,32%);
+.box-shadow(3px, -3px, 0, lighten(@light-blue,10%));
+ border:1px solid lighten(@light-blue,2%);
+}
+
+.track-link-p{
+ background:@light-green;
+ color:darken(@light-green,55%);
+ .box-shadow(3px, -3px, 0, darken(@light-green,15%));
+ border:1px solid darken(@light-green,25%);
+
+}
+
+.progress-bar  .track-list li .track-link-d.btm-trk{
+ .box-shadow(3px, 3px, 0, lighten(@light-blue,10%));
+ top:120px;
+}
+
+.progress-bar  .track-list li .track-link-p.btm-trk{
+ .box-shadow(3px, 3px, 0, darken(@light-green,15%));
+ top:120px;
+}
+
+a.track-link-d:hover{
+  background:lighten(@light-blue,24%);
+}
+
+a.track-link-p:hover{
+  background:lighten(@light-green,2%);
+}
+
+a.track-link:active{
+ .box-shadow(2px, -2px, 0, lighten(@light-blue,10%));
+ -moz-transform:translate(0,-1px);
+}
+
+a.track-link-p:active{
+ .box-shadow(2px, -2px, 0, darken(@light-green,15%));
+}
+
+a.track-link:hover .arrow-bottom-d {
+  border-top:8px solid lighten(@light-blue,24%);
+}
+
+a.track-link:hover .arrow-top-d {
+  border-bottom:8px solid lighten(@light-blue,24%);
+}
+
+a.track-link:hover .arrow-bottom-p {
+  border-top:8px solid lighten(@light-green,2%);
+}
+
+a.track-link:hover .arrow-top-p {
+  border-bottom:8px solid lighten(@light-green,2%);
+}
+
+a.track-link:focus{
+ outline:none;
+}
+a.donate-now-btn.primary {
+ position:absolute;
+ padding:1em 2em;
+ top:63px;
+ text-shadow:1px 1px 0 rgba(0,0,0,0.35);
+ white-space:nowrap;
+}
+a.donate-now-btn:active{
+ position:absolute;
+ top:63px;
+  .box-shadow(inset 1px, 1px, 5px, rgba(0,0,0,0.3));
+}
+
+.progress-no-desc {
+ display:inline-bock;
+}
+
+.donnate-p-1 {background-color:#949181;}
+.donnate-p-2 {background-color:#c8867f}
+.donnate-p-3 {background-color:#8aabc8}
+
+.sell-p-1 {background-color:#868195;}
+.sell-p-2 {background-color:#b57e77}
+.sell-p-3 {background-color:#a4b685}
+
+div.water-color{
+ background:url("@{img-url}/water-color.png") left top no-repeat transparent;
+ width:100%;
+ height:15px;
+ position:relative;
+ z-index:0;
+}
+
+section.progress-steps-description {
+ margin:0 0 36px 0;
+ border:1px solid #e2e2e2;
+ .box-shadow(0, 0, 2px, rgba(0,0,0,0.1) );
+ position:relative;
+ z-index:1;
+}
+
+section.progress-steps-description ul{
+ list-style:none;
+ margin:0;
+ padding:0;
+}
+section.progress-steps-description ul li{
+  background:url("@{img-url}/progress-pattern.png") left top repeat;
+ width:100%;
+ height:250px;
+ margin-bottom:35px;
+ position:relative;
+ &:last-child{
+  margin-bottom:0;
+ }
+}
+
+section.progress-steps-description .progress-no {
+ margin-top:0;
+ -moz-box-shadow:none;
+ -webkit-box-shadow:none;
+ box-shadow:none;
+ z-index:3;
+}
+section.progress-steps-description .progress-step-content {
+ .Helv();
+ padding:25px;
+ height:200px;
+ width:530px;
+ display:inline-block;
+ text-shadow:1px 1px 0 #FFF;
+ vertical-align:middle;
+}
+
+/** step 2 requires right alignment -- not used anymore**/
+.indented-step-content {
+ margin-left:83px;
+ margin-top:10px;
+}
+
+section.progress-steps-description .progress-step-content h2{
+ display:inline-block;
+ vertical-align:middle;
+ margin-left:25px;
+
+}
+
+section.progress-steps-description .progress-step-content h2 + p {
+ margin-left:63px;
+}
+
+div.step-picto-container {
+ display:inline-block;
+ vertical-align:middle;
+ width:435px;
+ text-align:center;
+}
+
+.progress-steps-description ul li:last-child .step-picto-container{
+ text-align:left; 
+}
+
+img.progress-picto {
+ vertical-align:middle;
+}
+
+.dotted-arrow{
+  position:absolute;
+   z-index:2;
+}
+
+.step-arrow-1{
+ background:url("@{img-url}/step-1-arrow.png") left top no-repeat transparent;
+ width:449px;
+ height:263px;
+ top:55px;
+ left:42px;
+}
+
+.step-arrow-2 {
+ background:url("@{img-url}/step-2-arrow.png") left top no-repeat transparent;
+  width:478px;
+ height:280px;
+ top:64px;
+ left:41px;
+}
+
+.step-arrow-3 {
+ background:url("@{img-url}/step-3-arrow.png") left top no-repeat transparent;
+  width:478px;
+ height:280px;
+ top:63px;
+ left:42px;
+}
+
+
+.bottom-donate-container {
+ text-align:center;
+ margin:45px 0 20px;
+ position:relative;
+ z-index:3;
+}
+
+.bottom-donate-container a.donate-now-btn.primary{
+ position:static;
+}
+/*** About us page ***/
+.page-quote{
+ float:left;
+ margin:0 0 36px;
+ width:100%;
+}
+
+.our-values {
+ margin:0 0 18px;
+ float:left;
+}
+
+.our-values .box-33{
+ text-shadow:1px 1px 0 #FFF; 
+}
+
+.about-picto-container {
+ height:200px;
+ float:left;
+ display:inline-block;
+ width:22%;
+ text-align:left;
+}
+
+.about-box-text {
+ display:inline-block;
+ width:78%;
+}
+
+/*** Contact us page ***/
+
+.contact-us-section {
+ background:#f8f8f8;
+ padding:50px;
+}
+
+.contact-picto-container{
+ width:100px;
+ float:left;
+ display:inline-block;
+}
+
+.contact-info{
+ display:inline-block;
+  ul{
+   padding:0;
+   margin-top:0;
+  }
+}
+
+/* =============================================================================
+   Non-semantic helper classes
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+.arrow{
+ display:inline-block;
+ position:absolute;
+}
+
+.arrow-left{
+ left:-8px;
+ top:40%;
+ border-top:10px solid transparent;
+ border-bottom:10px solid transparent;
+ border-right:10px solid #151515;
+}
+
+.arrow-right {
+ left:99.5%;
+ top:40%;
+ border-top:10px solid transparent;
+ border-bottom:10px solid transparent;
+ border-left:10px solid #151515;
+ }
+
+
+.arrow-bottom{
+ left:12px;
+ top:100%;
+}
+
+.arrow-bottom-d{
+ border-top:8px solid lighten(@light-blue,22%);
+ border-right:8px solid transparent;
+ border-left:8px solid transparent;
+}
+
+.arrow-bottom-p{
+ border-top:8px solid @light-green;
+ border-right:8px solid transparent;
+ border-left:8px solid transparent;
+}
+.arrow-bottom-border{
+ left:11px;
+ top:100%;
+}
+.arrow-bottom-border-d{
+ border-top:9px solid lighten(@light-blue,2%);
+ border-right:9px solid transparent;
+ border-left:9px solid transparent;
+}
+
+.arrow-bottom-border-p{
+ border-top:9px solid darken(@light-green,25%);
+ border-right:9px solid transparent;
+ border-left:9px solid transparent;
+}
+
+.arrow-top{
+ left:12px;
+ bottom:100%;
+}
+
+.arrow-top-d{
+ border-right:8px solid transparent;
+ border-bottom:8px solid lighten(@light-blue,22%);
+ border-left:8px solid transparent;
+}
+
+.arrow-top-p{
+ border-right:8px solid transparent;
+ border-bottom:8px solid @light-green;
+ border-left:8px solid transparent;
+}
+
+.arrow-top-border{
+ left:11px;
+ bottom:100%;
+}
+
+.arrow-top-border-d{
+ border-bottom:9px solid lighten(@light-blue,2%);
+ border-right:9px solid transparent;
+ border-left:9px solid transparent;
+}
+
+.arrow-top-border-p{
+ border-bottom:9px solid darken(@light-green,25%);
+ border-right:9px solid transparent;
+ border-left:9px solid transparent;
+}
+
+.inner-box{
+ padding:25px; 
+}
+
+.inner-box{
+ //padding:10px; 
+}
+
+.box{
+ float:left;
+ display:inline-block;
+ position:relative; 
+}
+
+.box-50{
+ width:46%;
+ margin-right:8%;
+}
+
+.box-33{
+ width:30%;
+ margin-right:5%;
+}
+
+.box-last{
+ margin-right:0;
+}
+
+@inner-shadow-box:inset 0 0 2px rgba(0,0,0,0.1);
+.inner-shadow-box {
+ background-color:#f6f6f6;
+  -moz-box-shadow:@inner-shadow-box;
+ -webkit-box-shadow:@inner-shadow-box;
+ box-shadow:@inner-shadow-box;
+ .border-radius(2px);
+ float:left;
+ padding:0 15px;
+}
+
+.inner-centred {
+ text-align:center;
+}
+
+.no-border-bottom{
+ border-bottom:none;
+}
+
+.info{
+ color:#777;
+}
+
+.info-plus {
+ color:#444;
+}
+
+.rounded{
+ .border-radius(50px);
+}
+
+.fl-r{
+ float:right;
+}
+/* =============================================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) {
+/* Styles */
+  .wrapper {
+   width:768px;
+   padding:0 10px;
+  }
+  
+  #nav-container nav ul li {
+   padding:0.25em 1.6em; 
+  }
+  
+  .shortcut-to-sections{
+   padding:0 10px;
+  }
+  .main-quote {
+   margin:2.5em auto;
+  }
+  
+  .process{
+   height:200px;
+  }
+ 
+  .process-steps ol > li {
+   height:200px;
+   width:19%;
+  }
+  
+  .call2action-container a{
+   margin-top:10px;
+  }
+  
+  ul.go-to-sections li{
+   background:none 15px center no-repeat transparent;
+   height:130px;
+  }
+  ul.go-to-sections li a {
+   background-position:20px center;
+  }
+  ul.go-to-sections a{
+   font-size:1.3em;
+   height:130px;
+   line-height:130px;
+  }
+  .footer-logo {
+    float:left;
+    display:inline-block;
+    position:static;
+  }
+  
+  /*
+   * Store page adjustments
+   */
+  .c-product {
+   width:47%;
+  }
+  .c-product.fl-r{
+   margin-right:10px;
+   display:inline;
+  }
+  a.product-link {
+   width:70%;
+  }
+  span.price-tag {
+   left:220px;
+  }
+  .product-view .btn{
+   margin-right:100px;
+  }
+  /*----- End Store ------*/
+  
+  /*
+   * Sell & Donate page adjustments
+   */
+  a.donate-now-btn.primary {
+   padding:1em 1.3em;
+  }
+  
+ .progress-bar .track-list.track-list-s{
+  background:url("@{img-url}/progress-arrow-s.png") -250px 67px no-repeat;
+ }
+ .progress-bar .track-list{
+  background:url("@{img-url}/progress-arrow.png") -250px 67px no-repeat;
+ }
+ .progress-bar .track-list li a.track-link {
+  font-size:0.9em;
+  font-weight:bold;
+ }
+ section.progress-steps-description .progress-step-content h3 {
+  font-size:1em;
+ }
+ div.step-picto-container {
+  width:290px;
+ }
+ section.progress-steps-description .progress-step-content {
+  width:370px;
+  padding:15px;
+ }
+ .dotted-arrow {
+  display:none;
+ }
+
+}
+
+
+
+/* =============================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
