@@ -80,7 +80,7 @@
 			
 		</div>
 		<div class="shortcut-to-sections wrapper">
-			<h1>Why CauseGold?</h1>
+			<h1 class="why">Why CauseGold?</h1>
 			<p class="description-text-large">CauseGold offers a secure and trusted place to sell or donate your gold and silver. Our philosophy is to offer our clients openness and among the highest payouts in the industry while helping organizations fundraise for their Causes. </p>
 			<ul class="go-to-sections">
 				<li class="go-to-donate"><a href="donate.php"><strong>Donate</strong> your payouts to the Cause of your choice.</a></li>
